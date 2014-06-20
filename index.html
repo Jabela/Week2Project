@@ -2,43 +2,62 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>YogaTree</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-	<ul class="nav">
-		<a href="index.html"><img src="images/logo.png" class="logo"></a>
-		<li><a href="about.html">About</a></li>
-		<li><a href="classes.html">Classes</a>
-			<ul class="subnav">
-				<li><a href="#">Levels</a></li>
-				<li><a href="#">Styles</a></li>
-				<li><a href="#">Fees</a></li>
-				<li><a href="#">Schedule</a></li>
-			</ul> 
-		</li>
-		<li><a href="contact.html">Contact Us</a></li>
-	</ul>
+<!-- NAV -------------------------------------------->
+	<div class="navMobile">
+		<h1><a href="index.html"><img class="logo" src="images/logo.png"></a></h1>
+
+		<span class="hamburger">☰</span>
+		<ul class="navList">
+			<li><a href="about.html">About</a></li>
+			<li><a href="#">Classes</a>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+
+	<div class="nav">
+		<h1><a href="index.html"><img src="images/logo.png" class="logo"></a></h1>
+		<ul>
+			<li><a href="about.html">About</a></li>
+			<li id="dropDown"><a href="#">Classes</a>
+				<ul class="subnav">
+					<li><a href="#">Levels</a></li>
+					<li><a href="#">Styles</a></li>
+					<li><a href="#">Fees</a></li>
+					<li><a href="#">Schedule</a></li>
+				</ul>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+<!-- HEADER -------------------------------------------->
 	<div class="header clearfix">
 		<div class="callToAction">
-			<h1>Accessible Yoga Anywhere in Toronto</h1>
+			<h2>Accessible Yoga Anywhere in Toronto</h2>
 			<a href="#" class="button orange">Sign Up Now!</a>
 		</div>
 	</div>
-	<div class="content clearfix">
-		<div class="intro clearfix">
+<!-- INTRO -------------------------------------------->
+	<div class="intro clearfix">
+		<div class="content clearfix">
 			<p>
 				Whatever your level of experience or interest in yoga, we welcome you to our studio! Come discover and develop your great capacity for mental clarity, as well as the wide range of your physical ability. Set in an ecological oasis, each studio offers a wide variety of classes in progressive levels, led by highly trained and extremely pleasant professionals.
 			</p>
 		</div>
-		<div class="body indexBody clearfix">
+	</div>
+<!-- BODY -------------------------------------------->
+	<div class="body clearfix">
+		<div class="content clearfix">
 			<h2>Services Offered</h2>
 			<ul>
 				<li>
 					<img src="images/teacher_training.jpg">
 					<h3>Teacher Training</h3>
-					<p>Yoga Tree's 250-hour Yoga Teacher Training, is a comprehensive, foundational yoga teacher certification program for aspiring teachers.</p>
+					<p>Yoga Tree offers teacher training that is a comprehensive, foundational yoga teacher certification program for aspiring teachers.</p>
 				</li>
 				<li>
 					<img src="images/class.jpg">
@@ -53,8 +72,23 @@
 			</ul>
 		</div>
 	</div>
+<!-- FOOTER -------------------------------------------->
 	<div class="footer">
-		<p>Copyright (c) 2014 yogatree.ca. All rights reserved.</p>
+		<p>This is a student project. All content is property of YogaTree.</p>
 	</div>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(function(){
+			$(".nav").find("li#dropDown").hover(function(){
+				$(".subnav").slideDown(300);
+			});
+			$(".nav").find("li#dropDown").mouseleave(function(){
+				$(".subnav").slideUp(300);
+			});
+			$(".hamburger").on("click", function(){
+				$(".navList").slideToggle(300);
+			});
+		});
+	</script>
 </body>
 </html>

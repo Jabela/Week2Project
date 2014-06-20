@@ -1,34 +1,50 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<title>YogaTree</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-	<ul class="nav">
-		<a href="index.html"><img src="images/logo.png" class="logo"></a>
-		<li><a href="about.html">About</a></li>
-		<li><a href="classes.html">Classes</a>
-			<ul class="subnav">
-				<li><a href="#">Levels</a></li>
-				<li><a href="#">Styles</a></li>
-				<li><a href="#">Fees</a></li>
-				<li><a href="#">Schedule</a></li>
-			</ul>
-		</li>
-		<li><a href="contact.html">Contact Us</a></li>
-	</ul>
+<!-- NAV -------------------------------------------->
+	<div class="navMobile">
+		<h1><a href="index.html"><img class="logo" src="images/logo.png"></a></h1>
+
+		<span class="hamburger">☰</span>
+		<ul class="navList">
+			<li><a href="about.html">About</a></li>
+			<li><a href="#">Classes</a>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+
+	<div class="nav">
+		<h1><a href="index.html"><img src="images/logo.png" class="logo"></a></h1>
+		<ul>
+			<li><a href="about.html">About</a></li>
+			<li id="dropDown"><a href="#">Classes</a>
+				<ul class="subnav">
+					<li><a href="#">Levels</a></li>
+					<li><a href="#">Styles</a></li>
+					<li><a href="#">Fees</a></li>
+					<li><a href="#">Schedule</a></li>
+				</ul>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+<!-- HEADER -------------------------------------------->
 	<div class="header aboutHeader clearfix">
 		<!-- Not sure how to do this properly -->
 		<div class="callToAction hide">
-			<h1>Accessible Yoga Anywhere in Toronto</h1>
+			<h2>Accessible Yoga Anywhere in Toronto</h2>
 			<a href="#" class="button orange">Sign Up Now!</a>
 		</div>
 	</div>
-	<div class="content clearfix">
-		<div class="body aboutBody clearfix">
+<!-- BODY -------------------------------------------->
+	<div class="body clearfix">
+		<div class="content aboutBody clearfix">
 			<h2>About</h2>
 			<h3>Our Story</h3>
 			<img src="images/founders.jpg">
@@ -39,8 +55,23 @@
 			<p>In 2011, their passion and dedication to Yoga Tree motivated them to expand to the downtown market. Debbie and Jason continued to refine their studios to better suit customers’ needs and in 2012, they opened their 4th studio at the heart of Yonge and Eglinton. Yoga Tree is now one of the largest chains of yoga studios in Toronto, with four locations across the GTA and a dedicated team of over 90 yoga instructors and yoga advisors.</p>
 		</div>
 	</div>
+<!-- FOOTER -------------------------------------------->
 	<div class="footer">
-		<p>Copyright (c) 2014 yogatree.ca. All rights reserved.</p>
+		<p>This is a student project. All content is property of YogaTree.</p>
 	</div>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(function(){
+			$(".nav").find("li#dropDown").hover(function(){
+				$(".subnav").slideDown(300);
+			});
+			$(".nav").find("li#dropDown").mouseleave(function(){
+				$(".subnav").slideUp(300);
+			});
+			$(".hamburger").on("click", function(){
+				$(".navList").slideToggle(300);
+			});
+		});
+	</script>
 </body>
 </html>

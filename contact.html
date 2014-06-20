@@ -1,52 +1,71 @@
 <!doctype html>
 <html lang="en">
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="UTF-8">
 	<title>YogaTree</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet.css">
 	<link rel="stylesheet" href="stylesheet.css" type="text/css" charset="utf-8" />
 </head>
 <body>
-	<ul class="nav">
-		<a href="index.html"><img src="images/logo.png" class="logo"></a>
-		<li><a href="about.html">About</a></li>
-		<li><a href="classes.html">Classes</a>
-			<ul class="subnav">
-				<li><a href="#">Levels</a></li>
-				<li><a href="#">Styles</a></li>
-				<li><a href="#">Fees</a></li>
-				<li><a href="#">Schedule</a></li>
-			</ul>
-		</li>
-		<li><a href="contact.html">Contact Us</a></li>
-	</ul>
+<!-- NAV -------------------------------------------->
+	<div class="navMobile">
+		<h1><a href="index.html"><img class="logo" src="images/logo.png"></a></h1>
+
+		<span class="hamburger">☰</span>
+		<ul class="navList">
+			<li><a href="about.html">About</a></li>
+			<li><a href="#">Classes</a>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+
+	<div class="nav">
+		<h1><a href="index.html"><img src="images/logo.png" class="logo"></a></h1>
+		<ul>
+			<li><a href="about.html">About</a></li>
+			<li id="dropDown"><a href="#">Classes</a>
+				<ul class="subnav">
+					<li><a href="#">Levels</a></li>
+					<li><a href="#">Styles</a></li>
+					<li><a href="#">Fees</a></li>
+					<li><a href="#">Schedule</a></li>
+				</ul>
+			<li><a href="contact.html">Contact Us</a></li>
+		</ul>
+	</div>
+<!-- HEADER -------------------------------------------->
 	<div class="header contactHeader clearfix">
 		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.0121524834863!2d-79.39714367990113!3d43.64791550346947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b34db9c0ecedd%3A0xf8b73b0a468a0f35!2sYoga+Tree+Richmond+%26+Spadina+Toronto!5e0!3m2!1sen!2sca!4v1398458145605" width="100%" height="360" frameborder="0" style="border:0"></iframe>
 	</div>
-	<div class="content clearfix">
-		<div class="body contactBody clearfix"> 
+<!-- BODY -------------------------------------------->
+	<div class="body clearfix">
+		<div class="content contactBody clearfix"> 
 			<h2>Contact Us</h2>
 			<ul>
 				<li>
 					<img src="images/richmondSpadina.jpg">
-					<p><span>Richmond & Spadina</span></p>
-					<p>140 Spadina Avenue, Unit 201</p>
+					<h3>Richmond & Spadina</h3>
+					<p>140 Spadina Ave., Unit 201</p>
 					<p>Toronto, ON, M5V 2L4</p>
 					<p>416.603.9642</p>
 				</li>
 				<li>
 					<img src="images/yongeEglinton.jpg">
-					<p><span>Yonge & Eglinton</span></p>
-					<p>40 Eglinton Avenue East, 8th floor</p>
+					<h3>Yonge & Eglinton</h3>
+					<p>40 Eglinton Ave. East, Floor 8</p>
 					<p>Toronto, ON, M4P 3A2</p>
 					<p>416.322.9642</p>
+				</li>
 				<li>
 					<img src="images/richmondHill.jpg">
-					<p><span>Richmond Hill</span></p>
-					<p>360 Highway 7 East, Unit 1,</p>
+					<h3>Richmond Hill</h3>
+					<p>360 Highway 7 East, Unit 1</p>
 					<p>Richmond Hill, ON, L4B 3Y7</p>
 					<p>905.882.9642</p>
+				</li>
 			</ul>
+	<!-- Form -->
 			<div class="form clearfix">
 				<h3>Feel Free to Contact Us!</h3>
 				<form action="sendEmail.php" method="POST" class="clearfix" name="Form">
@@ -61,21 +80,37 @@
 					<input class="button green" type="submit" value="Send">
 				</form>
 			</div>
+	<!-- Hours -->
 			<div class="hours">
 				<li>
 					<p><h3>Hours</h3></p>
-					<p>Monday: 9:00am - 10:00pm</p>
-					<p>Tuesday: 9:00am - 10:00pm</p>
-					<p>Wednesday: 9:00am - 10:00pm</p>
-					<p>Thursday: 9:00am - 10:00pm</p>
-					<p>Friday: 9:00am - 8:00pm</p>
-					<p>Saturday: 7:45am - 4:00pm</p>
-					<p>Sunday: 7:45pm - 6:00pm</p>
+					<p>Monday: 9am - 10pm</p>
+					<p>Tuesday: 9am - 10pm</p>
+					<p>Wednesday: 9am - 10pm</p>
+					<p>Thursday: 9am - 10pm</p>
+					<p>Friday: 9am - 8pm</p>
+					<p>Saturday: 8am - 4pm</p>
+					<p>Sunday: 8pm - 6pm</p>
 				</li>
 			</div>
 		</div>
+<!-- FOOTER -------------------------------------------->
 	<div class="footer">
-		<p>Copyright (c) 2014 yogatree.ca. All rights reserved.</p>
+		<p>This is a student project. All content is property of YogaTree.</p>
 	</div>
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<script>
+		$(function(){
+			$(".nav").find("li#dropDown").hover(function(){
+				$(".subnav").slideDown(300);
+			});
+			$(".nav").find("li#dropDown").mouseleave(function(){
+				$(".subnav").slideUp(300);
+			});
+			$(".hamburger").on("click", function(){
+				$(".navList").slideToggle(300);
+			});
+		});
+	</script>
 </body>
 </html>
